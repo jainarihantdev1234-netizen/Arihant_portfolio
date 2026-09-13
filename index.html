@@ -1,0 +1,601 @@
+Here is the complete, single-file HTML page containing the layout, modern developer styling, and interactive JavaScript scripts customised specifically for **Arihant Jain**.
+
+Save the code below as **`index.html`** and open it in any web browser, or upload it to GitHub Pages / Vercel / Netlify to launch your website immediately.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arihant Jain | Full Stack Developer</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --border-color: #334155;
+            --code-bg: #090d16;
+            --font-main: 'Inter', sans-serif;
+            --font-code: 'Fira Code', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .logo-box {
+            background: var(--accent);
+            color: var(--bg-color);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-hire {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-hire:hover {
+            background: var(--accent-glow);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: var(--font-code);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-role {
+            font-family: var(--font-code);
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-color);
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-bg);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Config Card */
+        .config-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            background: var(--code-bg);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .window-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ef4444; }
+        .yellow { background: #f59e0b; }
+        .green { background: #10b981; }
+
+        .card-title {
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            font-family: var(--font-code);
+            font-size: 0.95rem;
+        }
+
+        .profile-preview {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-preview img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .code-snippet {
+            color: #e2e8f0;
+        }
+
+        .code-keyword { color: #f43f5e; }
+        .code-var { color: #38bdf8; }
+        .code-string { color: #a3e635; }
+
+        /* General Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-code);
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            border-radius: 12px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .progress-bar {
+            margin-bottom: 1rem;
+        }
+
+        .progress-title {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .bar-bg {
+            background: #0f172a;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            background: var(--accent);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 6rem;
+                text-align: center;
+            }
+            .hero-cta, .social-links {
+                justify-content: center;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <div class="logo-box">A</div>
+                <span>&lt;Arihant /&gt;</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="btn-hire">Hire Me</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <div class="status-badge">
+                    <span class="dot"></span>
+                    <span>Available for Roles & Projects / India 🇮🇳</span>
+                </div>
+                <h1>Hi, I'm <span>Arihant Jain</span> 👋</h1>
+                <div class="hero-role">&gt; Full Stack Developer</div>
+                <p>
+                    Passionate software engineer building resilient full-stack applications, scalable backend microservices, and interactive modern web experiences. Focused on clean architecture and competitive problem-solving.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">Explore Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/arihantjain" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/arihantjain" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/arihant_jain" target="_blank" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://leetcode.com/arihant_jain" target="_blank" title="LeetCode"><i class="fas fa-code"></i></a>
+                    <a href="mailto:arihantjain@gmail.com" title="Direct Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Config / Profile Display Card -->
+            <div class="config-card">
+                <div class="card-header">
+                    <span class="window-dot red"></span>
+                    <span class="window-dot yellow"></span>
+                    <span class="window-dot green"></span>
+                    <span class="card-title">arihant.config.json</span>
+                </div>
+                <div class="card-body">
+                    <div class="profile-preview">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Arihant Jain">
+                        <div>
+                            <h4>Arihant Jain</h4>
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">@arihant_jain</p>
+                        </div>
+                    </div>
+                    <div class="code-snippet">
+                        <p><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</p>
+                        <p style="padding-left: 1rem;"><span class="code-var">name:</span> <span class="code-string">'Arihant Jain'</span>,</p>
+                        <p style="padding-left: 1rem;"><span class="code-var">focus:</span> <span class="code-string">'Full Stack & Scalable Systems'</span>,</p>
+                        <p style="padding-left: 1rem;"><span class="code-var">location:</span> <span class="code-string">'India'</span>,</p>
+                        <p style="padding-left: 1rem;"><span class="code-var">status:</span> <span class="code-string">'readyToBuild'</span>,</p>
+                        <p style="padding-left: 1rem;"><span class="code-var">openToWork:</span> <span style="color: #f59e0b;">true</span></p>
+                        <p>};</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section & Key Stats -->
+        <section id="about">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projects Built</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">LeetCode Solved</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years Coding</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1500+</div>
+                    <div class="stat-label">GitHub Contributions</div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <span class="section-subtitle">Get To Know Me</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-muted);">
+                Hey! I'm <strong>Arihant Jain</strong>, a dedicated full-stack software engineer based in India. I thrive on architecting resilient web applications, designing reliable backends, and crafting fluid frontend interfaces with modern developer tooling.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <span class="section-subtitle">My Toolbelt</span>
+                <h2 class="section-title">Skills & Tech Stack</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code" style="color: var(--accent);"></i> Frontend</h3>
+                    <div class="progress-bar">
+                        <div class="progress-title"><span>React.js / Next.js</span><span>92%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 92%;"></div></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-title"><span>TypeScript</span><span>90%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-title"><span>Tailwind CSS</span><span>95%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 95%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-server" style="color: var(--accent);"></i> Backend</h3>
+                    <div class="progress-bar">
+                        <div class="progress-title"><span>Node.js / Express</span><span>88%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 88%;"></div></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-title"><span>Python / Django</span><span>82%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 82%;"></div></div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-title"><span>PostgreSQL / MongoDB</span><span>85%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="text-align: center;">
+            <div class="section-header">
+                <span class="section-subtitle">Let's Connect</span>
+                <h2 class="section-title">Get In Touch</h2>
+            </div>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Feel free to reach out for project inquiries, collaborations, or opportunities!</p>
+            <a href="mailto:arihantjain@gmail.com" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Say Hello 👋</a>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem;">
+        <p>© 2026 Arihant Jain. Built with passion & clean code.</p>
+    </footer>
+
+    <!-- Interactive Features JavaScript -->
+    <script>
+        // Smooth Scrolling Anchor Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Dynamic Header Transparency on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
+```
